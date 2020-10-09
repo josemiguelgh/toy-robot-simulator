@@ -60,7 +60,7 @@ namespace MottMac.TRS.RoboCore.Test
         }
 
         [Test]
-        public void Move_WithProperPlacementHorAndMultipleSteps_FinalIgnores()
+        public void Move_WithProperPlacementHorizAndMultipleSteps_FinalIgnores()
         {
             var robot = new Robot();
             robot.Place(4, 4, Direction.West);
@@ -70,75 +70,25 @@ namespace MottMac.TRS.RoboCore.Test
             Assert.AreEqual(true, robot.Move());
             Assert.AreEqual(false, robot.Move());
         }
-    }
 
-    public class Robot
-    {
-        private int? _positionX;
-        private int? _positionY;
-        private Direction? _currentDirection;
-
-        public bool IsPlacedInBoard => _positionX != null && _positionY != null && _currentDirection != null;
-
-        public Robot()
+        [Test]
+        public void FullMovement_WithProperPlacementStepsChangeDir_Ok()
         {
-            _positionX = null;
-            _positionY = null;
-            _currentDirection = null;
-        }
-    
-        public bool Place(int x, int y, Direction direction)
-        {
-            if (!IsValidBoardPosition(x,y))
-                return false;
-
-            _positionX = x;
-            _positionY = y;
-            _currentDirection = direction;
-            return true;
+            var robot = new Robot();
+            robot.Place(0, 0, Direction.North);
+            robot.Move();
+            robot.ChangeDirection(DirectionChange.Right);
+            Assert.AreEqual(true, robot.Move());
         }
 
-        public bool Move()
+        [Test]
+        public void FullMovement_WithProperPlacementStepsChangeDir_Ignores()
         {
-            if (!IsPlacedInBoard)
-                return false;
-
-            if (_currentDirection == Direction.North && IsValidBoardPosition(_positionX, _positionY + 1))
-            {
-                _positionY = _positionY + 1;
-                return true;
-            }
-
-            if (_currentDirection == Direction.South && IsValidBoardPosition(_positionX, _positionY - 1))
-            {
-                _positionY = _positionY - 1;
-                return true;
-            }
-
-            if (_currentDirection == Direction.East && IsValidBoardPosition(_positionX + 1, _positionY))
-            {
-                _positionX = _positionX + 1;
-                return true;
-            }
-
-            if (_currentDirection == Direction.West && IsValidBoardPosition(_positionX -1, _positionY))
-            {
-                _positionX = _positionX -1;
-                return true;
-            }
-
-            return false;
-        }
-
-        private bool IsValidBoardPosition(int? x, int? y)
-        {
-            if (x == null || y == null)
-                return false;
-
-            if (x < 0 || x > 4 || y < 0 || y > 4)
-                return false;
-
-            return true;
+            var robot = new Robot();
+            robot.Place(4, 4, Direction.South);
+            robot.Move();
+            robot.ChangeDirection(DirectionChange.Left);
+            Assert.AreEqual(false, robot.Move());
         }
     }
 
@@ -148,5 +98,11 @@ namespace MottMac.TRS.RoboCore.Test
         East,
         South,
         West
+    }
+
+    public enum DirectionChange
+    {
+        Right,
+        Left
     }
 }
