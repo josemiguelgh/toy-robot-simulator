@@ -129,13 +129,5 @@ namespace MottMac.TRS.RoboCore.Test
             var robot = new RobotCore();
             Assert.AreEqual(null, robot.Report());
         }
-
-        //[Test]
-        //public void Report_WithoutPlacement2_Ignore()
-        //{
-        //    var robot = new Robot(new RobotCore());
-        //    Assert.AreEqual("", robot.Listen("PLACE 0,0,NORTH"));
-        //}
     }
-
 }
