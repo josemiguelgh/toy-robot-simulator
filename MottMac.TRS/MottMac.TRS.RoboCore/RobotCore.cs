@@ -1,14 +1,16 @@
-﻿namespace MottMac.TRS.RoboCore.Test
+﻿using Microsoft.VisualBasic;
+using MottMac.TRS.RoboCore.Enums;
+using MottMac.TRS.RoboCore.Interfaces;
+
+namespace MottMac.TRS.RoboCore
 {
-    public class Robot
+    public class RobotCore : IRobotCore
     {
         private int? _positionX;
         private int? _positionY;
         private Direction? _currentDirection;
 
-        public bool IsPlacedInBoard => _positionX != null && _positionY != null && _currentDirection != null;
-
-        public Robot()
+        public RobotCore()
         {
             _positionX = null;
             _positionY = null;
@@ -28,7 +30,7 @@
 
         public bool Move()
         {
-            if (!IsPlacedInBoard)
+            if (!IsPlacedInBoard())
                 return false;
 
             if (_currentDirection == Direction.North && IsValidBoardPosition(_positionX, _positionY + 1))
@@ -60,7 +62,7 @@
 
         public void ChangeDirection(DirectionChange directionChange)
         {
-            if (!IsPlacedInBoard)
+            if (!IsPlacedInBoard())
                 return;
 
             if (directionChange == DirectionChange.Right)
@@ -100,6 +102,19 @@
                         break;
                 }
             }
+        }
+
+        public string Report()
+        {
+            if (!IsPlacedInBoard())
+                return null;
+
+            return $"Output: {_positionX},{_positionY},{_currentDirection.Value.ToString().ToUpper()}";
+        }
+
+        private bool IsPlacedInBoard()
+        {
+            return IsValidBoardPosition(_positionX, _positionY) && _currentDirection != null;
         }
 
         private bool IsValidBoardPosition(int? x, int? y)

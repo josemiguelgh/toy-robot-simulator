@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MottMac.TRS.Web", "MottMac.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MottMac.TRS.RoboCore.Test", "MottMac.TRS.RoboCore.Test\MottMac.TRS.RoboCore.Test.csproj", "{9D7F4353-B51D-4F93-BF60-AF8DD9E0EC1A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MottMac.TRS.RoboCore", "MottMac.TRS.RoboCore\MottMac.TRS.RoboCore.csproj", "{9B68D4F1-FA93-43B2-903D-E98F87AF0D56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MottMac.TRS.ConsoleClient", "MottMac.TRS.ConsoleClient\MottMac.TRS.ConsoleClient.csproj", "{09DDC3C1-DF3D-40AD-A41E-BA57D52899ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{9D7F4353-B51D-4F93-BF60-AF8DD9E0EC1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D7F4353-B51D-4F93-BF60-AF8DD9E0EC1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D7F4353-B51D-4F93-BF60-AF8DD9E0EC1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B68D4F1-FA93-43B2-903D-E98F87AF0D56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B68D4F1-FA93-43B2-903D-E98F87AF0D56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B68D4F1-FA93-43B2-903D-E98F87AF0D56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B68D4F1-FA93-43B2-903D-E98F87AF0D56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09DDC3C1-DF3D-40AD-A41E-BA57D52899ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09DDC3C1-DF3D-40AD-A41E-BA57D52899ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09DDC3C1-DF3D-40AD-A41E-BA57D52899ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09DDC3C1-DF3D-40AD-A41E-BA57D52899ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

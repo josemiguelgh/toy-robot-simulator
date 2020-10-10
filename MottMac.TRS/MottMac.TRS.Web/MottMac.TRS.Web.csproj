@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MottMac.TRS.RoboCore\MottMac.TRS.RoboCore.csproj" />
+  </ItemGroup>
+
 </Project>
