@@ -1,5 +1,11 @@
 # toy-robot-simulator
 
+### Branching Strategy:
+* "master" contains the latest stable functionality.
+* I defined a v0.1 branch to contain the initial version of this app.
+* I created a ROBO-001 branch from the v0.1 (ROBO-001 would be the a Jira/Trello ticket #). In this branch I included my code changes with multiple commit/push.
+* I created a pull request from ROBO-001 to v0.1 AND from v0.1 to master. I am aware that the pull request should be ideally reviewed by a peer but skipping that for the sake of simplicity.
+
 ### Robot Functioning:
 * The robot is case sensitive.
 
